@@ -1,13 +1,19 @@
 class Parser {
     constructor() {}
 
-    parse(string) {
-        
-    }
+    static parse(string) {
+        let regexPattern = new RegExp(/\w/i);
 
-    privatefunc() {
+        if (regexPattern.test(string)) {
+            return {
+                text: string
+            }
+        }
+
+        return null;
 
     }
+    
 }
 
 module.exports = Parser;

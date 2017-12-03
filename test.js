@@ -1,6 +1,5 @@
 import test from 'ava';
 let Parser = require('./parser/parser.js');
-let Lexer = require('./parser/lexer.js');
 
 test('foo', t => {
     t.pass();
@@ -12,7 +11,7 @@ test('bar', async t => {
     t.is(await bar, 'bar');
 });
 
-test('parser', t => {
+test('Parser exists', t => {
 
     let parser = new Parser();
 
@@ -20,19 +19,12 @@ test('parser', t => {
 
 });
 
-test('parser 2', t => {
+test('Parser creates basic token from single word, non-spaced', t => {
 
     let parser = new Parser();
 
+    let token = Parser.parse('hello');
 
-    t.truthy(parser.parse);
-
-});
-
-test('lexer', t => {
-
-    let lexer = new Lexer();
-
-    t.truthy(lexer.lex);
+    t.is(token, {text: "hello"});
 
 });
