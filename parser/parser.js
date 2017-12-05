@@ -3,17 +3,26 @@ class Parser {
 
     static parse(string) {
         let regexPattern = new RegExp(/\w/i);
+        let splitStrings = string.split(/\s/i);
 
-        if (regexPattern.test(string)) {
+        console.log(splitStrings);
+
+        let tokens = splitStrings.map(string => {
+
+            let tokenType = regexPattern.test(string) ? 'command' : 'text';
+            let tokenText = string;
+
             return {
+                type: tokenType,
                 text: string
             }
-        }
+        });
 
-        return null;
+        console.log(tokens);
 
+        return tokens;
     }
-    
+
 }
 
 module.exports = Parser;
