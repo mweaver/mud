@@ -10,7 +10,6 @@ class Parser {
         let tokens = splitStrings.map(string => {
 
             let tokenType = regexPattern.test(string) ? 'command' : 'text';
-            let tokenText = string;
 
             return {
                 type: tokenType,
