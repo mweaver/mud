@@ -1,4 +1,5 @@
 class Parser {
+
     constructor() {}
 
     static parse(string) {

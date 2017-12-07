@@ -1,5 +1,6 @@
 import test from 'ava';
-let Parser = require('./parser/parser.js');
+let Parser = require('./parser/Parser.js');
+let Player = require('./parser/Player.js');
 
 test('Parser exists', t => {
 
@@ -13,7 +14,7 @@ test('Parser creates basic token from single word, non-spaced', t => {
 
     let token = Parser.parse('hello');
 
-    t.is('hello', token[0].text);
+    t.is(token[0].text, 'hello');
 
 });
 
@@ -22,7 +23,15 @@ test('Parser creates basic tokens from two words separated by a space', t => {
 
     let tokens = Parser.parse('hello world');
 
-    t.is('hello', tokens[0].text);
-    t.is('world', tokens[1].text);
+    t.is(tokens[0].text, 'hello');
+    t.is(tokens[1].text, 'world');
+
+});
+
+test('Player has user name', t => {
+
+    let player = new Player();
+
+    t.is(player.userName, 'Test User');
 
 });
